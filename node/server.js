@@ -12,18 +12,20 @@ const config = {
 const mysql = require('mysql')
 const conn = mysql.createConnection(config)
 
-const sqlInsert = `INSERT INTO people(name) values (Gabriel ${new Date()})`
-conn.query(sqlInsert)
-
-let resultsSelect;
-const sqlSelect = 'SELECT name FROM people'
-conn.query(sqlSelect, (error, results, fields) => {
-    resultsSelect = results.map(result => result.name)
-})
-
-conn.end()
-
 app.get('/', (req, res) => {
+
+    let resultsSelect;
+
+    const sqlInsert = `INSERT INTO people(name) values('Gabriel')`
+    conn.query(sqlInsert, function(error, results, fields) {
+        console.log(results)
+    })
+
+    const sqlSelect = 'SELECT * FROM people'
+    conn.query(sqlSelect, function (error, results, fields) {
+        resultsSelect = results;
+    })
+    
     res.send(`<h1>Full Cycle Rocks!</h1> ${resultsSelect}`)
 })
 

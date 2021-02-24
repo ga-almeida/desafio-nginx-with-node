@@ -8,9 +8,8 @@ services:
     image: gabrielsantos/node
     container_name: node-challenger
     entrypoint: dockerize -wait tcp://db:3306 -timeout 30s docker-entrypoint.sh
+    command: node server.js
     tty: true
-    volumes: 
-      - ./node:/usr/src/app
     networks:
       - challenger-network
     ports: 
@@ -34,6 +33,7 @@ services:
     image: mysql:latest
     container_name: db
     command: --innodb-use-native-aio=0
+    tty: true
     environment:
       MYSQL_DATABASE: "nodedb"
       MYSQL_USER: "root"
