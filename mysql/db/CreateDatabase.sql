@@ -2,7 +2,8 @@ USE nodedb;
 
 CREATE TABLE people (
     id integer not null auto_increment,
-    name varchar(200)
+    name varchar(200),
+    PRIMARY KEY (id)
 );
 
 SET character_set_client = utf8;
