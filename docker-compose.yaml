@@ -8,10 +8,13 @@ services:
     image: gabrielsantos/node
     container_name: node-challenger
     entrypoint: dockerize -wait tcp://db:3306 -timeout 30s docker-entrypoint.sh
+    tty: true
     volumes: 
       - ./node:/usr/src/app
     networks:
       - challenger-network
+    ports: 
+      - "3000:3000"
     depends_on:
       - database
 
@@ -24,6 +27,8 @@ services:
       - challenger-network
     ports: 
       - "8080:80"
+    depends_on:
+      - node
 
   database:
     image: mysql:latest
