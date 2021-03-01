@@ -15,7 +15,7 @@
 </pre>
 
 </br>
-<p>Assim que os containers forem criados, faço o teste pelo link abaixo.</p>
+<p>Assim que os containers forem criados, faço o teste pelo link abaixo acessando o seu browser.</p>
 <pre>
-<code><a href="http://localhost:8080/">TESTE</a></code>
+<code><a href="http://localhost:8080/" target="_blank">TESTE</a></code>
 </pre>
