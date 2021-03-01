@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN npm install mysql express --save && \
+RUN npm install mysql2 express --save && \
     npm install
 
 RUN apt-get update && apt-get install -y wget

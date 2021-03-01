@@ -1,34 +1,18 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const db = require("./db");
 
-const config = {
-    host: 'db',
-    user: 'root',
-    password: 'root',
-    database: 'nodedb'
-}
+const app = express();
+const port = 3000;
 
-const mysql = require('mysql')
-const conn = mysql.createConnection(config)
+app.get('/', async (req, res) => {
 
-app.get('/', (req, res) => {
+    await db.insertPeople();
 
-    let resultsSelect;
-
-    const sqlInsert = `INSERT INTO people(name) values('Gabriel')`
-    conn.query(sqlInsert, function(error, results, fields) {
-        console.log(results)
-    })
-
-    const sqlSelect = 'SELECT * FROM people'
-    conn.query(sqlSelect, function (error, results, fields) {
-        resultsSelect = results;
-    })
+    const peoples = await db.selectPeoples();
     
-    res.send(`<h1>Full Cycle Rocks!</h1> ${resultsSelect}`)
-})
+    res.send(`<h1>Full Cycle Rocks!</h1> ${JSON.stringify(peoples)}`);
+});
 
 app.listen(port, () => {
-    console.log('Rodando na porta ' + port)
-})
+    console.log('Rodando na porta ' + port);
+});
