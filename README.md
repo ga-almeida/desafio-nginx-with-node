@@ -13,3 +13,9 @@
 <pre>
 <code>$ docker-compose up -d</code>
 </pre>
+
+</br>
+<p>Assim que os containers forem criados, faço o teste pelo link abaixo.</p>
+<pre>
+<code><a href="http://localhost:8080/">TESTE</a></code>
+</pre>
