@@ -1,6 +1,6 @@
-**Desafio Code Education Nginx proxy reverso**
+**Nginx proxy reverso**
 
-<h1>Instruções para executar o desafio</h1>
+<h1>Instruções para executar</h1>
 
 </br>
 <p>Primeiro é necessário clonar esse projeto.</p>
